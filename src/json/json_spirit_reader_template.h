@@ -239,7 +239,7 @@ namespace json_spirit
 
         void new_name( Iter_type begin, Iter_type end )
         {
-            assert( current_p_->type() == obj_type );
+            //assert( current_p_->type() == obj_type ); //rampa
 
             name_ = get_str< String_type >( begin, end );
         }
@@ -339,7 +339,7 @@ namespace json_spirit
                 return &current_p_->get_array().back(); 
             }
             
-            assert( current_p_->type() == obj_type );
+            //assert( current_p_->type() == obj_type ); //rampa
 
             return &Config_type::add( current_p_->get_obj(), name_, value );
         }

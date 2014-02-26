@@ -26,7 +26,6 @@ LIBS= \
    -l boost_filesystem$(LIBBOOST_SUFFIX) \
    -l boost_program_options$(LIBBOOST_SUFFIX) \
    -l boost_thread$(LIBBOOST_SUFFIX) \
-   -l boost_chrono$(LIBBOOST_SUFFIX) \
    -l db_cxx \
    -l ssl \
    -l crypto
@@ -47,7 +46,6 @@ huntercoind: USE_UPNP:=0
 		# Linux-specific
 		LIBS+= \
 			-Wl,-Bdynamic \
-			-l gthread-2.0 \
 			-l z \
 			-l dl \
 			-l pthread
@@ -94,7 +92,7 @@ obj/%.o: %.cpp $(HEADERS)
 	$(CXX) -c $(CXXFLAGS) -DGUI -o $@ $<
 
 cryptopp/obj/%.o: cryptopp/%.cpp
-	$(CXX) -c $(CXXFLAGS) -O3 -o $@ $<
+	$(CXX) -c $(CXXFLAGS) -O2 -o $@ $<
 
 obj/%.o: %.cpp $(HEADERS)
 	$(CXX) -c $(CXXFLAGS) -o $@ $<
